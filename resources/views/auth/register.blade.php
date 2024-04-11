@@ -1,52 +1,49 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+@extends('auth.master')
+@section('title', 'صفحه ثبت نام')
+
+@section('content')
+    <form method="POST" action="{{ route('register') }}" class="form">
         @csrf
+        <a class="account-logo" href="index.html">
+            <img src="img/weblogo.png" alt="">
+        </a>
+        <div class="form-content form-account">
+            <input type="text" class="txt" placeholder="* نام و نام خانوادگی" name="name" value="{{ old('name') }}"
+                required autofocus autocomplete="username">
+            @error('name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <input type="email" class="txt txt-l" placeholder="* ایمیل" name="email" value="{{ old('email') }}" required
+                autocomplete="email">
+            @error('email')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+
+            <input type="text" class="txt txt-l" placeholder="شماره موبایل" name="phone">
+            @error('phone')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+
+            <input type="password" class="txt txt-l" placeholder="* رمز عبور" name="password" required
+                autocomplete="new-password">
+            @error('password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+
+            <input type="password" class="txt txt-l" placeholder="* تایید رمز عبور" name="password_confirmation" required
+                autocomplete="new-password">
+            @error('password_confirmation')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <span class="rules">رمز عبور باید حداقل ۶ کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای غیر
+                الفبا مانند !@#$%^&*() باشد.</span>
+            <br>
+            <button class="btn continue-btn">ثبت نام و ادامه</button>
+
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="form-footer">
+            <a href="{{ route('login') }}">صفحه ورود</a>
         </div>
     </form>
-</x-guest-layout>
+@endsection
