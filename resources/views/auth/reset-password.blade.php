@@ -1,39 +1,40 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
+@extends('auth.master')
 
-        <!-- Password Reset Token -->
+@section('title', 'reset-password')
+
+@section('content')
+<form method="POST" action="{{ route('password.store') }}" class="form">
+    @csrf
+    <a class="account-logo" href="{{url('/')}}">
+        <img src="/img/weblogo.png" alt="">
+    </a>
+    <div class="form-content form-account">
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <input type="email" class="txt txt-l" placeholder="* ایمیل" name="email" value="{{ old('email', $request->email) }}" required
+            autocomplete="email">
+        @error('email')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <input type="password" class="txt txt-l" placeholder="* رمز عبور جدید" name="password" required
+            autocomplete="new-password" autofocus>
+        @error('password')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <input type="password" class="txt txt-l" placeholder="* تایید رمز عبور جدید" name="password_confirmation" required
+            autocomplete="new-password">
+        @error('password_confirmation')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+        <span class="rules">رمز عبور باید حداقل ۶ کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای غیر
+            الفبا مانند !@#$%^&*() باشد.</span>
+        <br>
+        <button class="btn continue-btn">بازنشانی رمز عبور</button>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+    </div>
+    <div class="form-footer">
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+</form>
+@endsection
