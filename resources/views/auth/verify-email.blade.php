@@ -1,31 +1,23 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+@extends('auth.master')
+
+@section('title', 'verify-email')
+
+@section('content')
+<form method="POST" action="{{ route('verification.send') }}" class="form">
+    @csrf
+    <a class="account-logo" href="{{url('/')}}">
+        <img src="img/weblogo.png" alt="">
+    </a>
+    <div class="form-content form-account">
+        @if (session('status') == 'verification-link-sent')
+            <p class="text-success">یک پیوند تأیید جدید به آدرس ایمیلی که هنگام ثبت نام ارائه کرده اید ارسال شده است.</p>
+        @endif
+        <p>از ثبت نام شما سپاسگزاریم! قبل از شروع، آیا می توانید آدرس ایمیل خود را با کلیک کردن روی پیوندی که به تازگی برای شما ایمیل کرده ایم تأیید کنید؟ اگر ایمیلی را دریافت نکردید، با کمال میل یک ایمیل دیگر برای شما ارسال خواهیم کرد.</p>
+        <br>
+        <button type="submit" class="btn btn-recoverpass">ارسال ایمیل بازیابی</button>
     </div>
-
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-    @endif
-
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
-
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
-            </div>
-        </form>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
-        </form>
+    <div class="form-footer">
+        <a href="{{ url('/') }}">بازگشت به صفحه اصلی</a>
     </div>
-</x-guest-layout>
+</form>
+@endsection
