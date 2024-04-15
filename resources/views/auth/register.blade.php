@@ -20,7 +20,7 @@
                 <span class="text-danger">{{ $message }}</span>
             @enderror
 
-            <input type="text" class="txt txt-l" placeholder="شماره موبایل" name="phone">
+            <input type="text" class="txt txt-l" placeholder="شماره موبایل" name="phone" value="{{ old('phone') }}">
             @error('phone')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
