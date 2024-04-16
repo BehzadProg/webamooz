@@ -27,7 +27,7 @@
         @error('password_confirmation')
             <span class="text-danger">{{ $message }}</span>
         @enderror
-        <span class="rules">رمز عبور باید حداقل ۶ کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای غیر
+        <span class="rules">رمز عبور باید حداقل 8 کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای غیر
             الفبا مانند !@#$%^&*() باشد.</span>
         <br>
         <button class="btn continue-btn">بازنشانی رمز عبور</button>

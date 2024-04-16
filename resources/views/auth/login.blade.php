@@ -13,12 +13,12 @@
             <input type="text" class="txt-l txt" placeholder="ایمیل یا شماره موبایل" name="username"
                 value="{{ old('username') }}" required autofocus autocomplete="username">
             @error('username')
-                <code>{{ $message }}</code>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
             <input type="password"class="txt-l txt" placeholder="رمز عبور" name="password" required
                 autocomplete="current-password">
             @error('password')
-                <code>{{ $message }}</code>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
             <br>
             <button class="btn btn--login">ورود</button>

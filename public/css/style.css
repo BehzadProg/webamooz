@@ -3674,3 +3674,12 @@ textarea {
  } .mrt-170{
      margin-top:170px;
  }
+
+ .text-danger{
+    color: red;
+    font-size: 14;
+ }
+ .text-success{
+    color: green;
+    font-size: 14;
+ }

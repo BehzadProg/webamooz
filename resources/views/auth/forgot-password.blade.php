@@ -15,7 +15,7 @@
             <input type="email" class="txt-l txt" placeholder="ایمیل" name="email" value="{{ old('email') }}" required
                 autofocus>
             @error('email')
-                <code>{{ $message }}</code>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
             <br>
             <button type="submit" class="btn btn-recoverpass">بازیابی</button>
