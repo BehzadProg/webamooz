@@ -1,5 +1,6 @@
 <?php
 
+use Beh7ad\User\Providers\UserServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -168,6 +169,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /*
+        * Modules Service Providers...
+        */
+        Beh7ad\User\Providers\UserServiceProvider::class,
+
     ])->toArray(),
 
     /*

@@ -1,4 +1,4 @@
-@extends('auth.master')
+@extends('User::Front.master')
 @section('title', 'صفحه ثبت نام')
 
 @section('content')

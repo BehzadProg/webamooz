@@ -1,6 +1,6 @@
-@extends('auth.master')
+@extends('User::Front.master')
 
-@section('title', 'reset-password')
+@section('title', 'بازنشانی رمز عبود')
 
 @section('content')
 <form method="POST" action="{{ route('password.store') }}" class="form">

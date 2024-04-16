@@ -1,6 +1,6 @@
-@extends('auth.master')
+@extends('User::Front.master')
 
-@section('title', 'forgot-password')
+@section('title', 'فراموشی رمز عبور')
 
 @section('content')
     <form method="POST" action="{{ route('password.email') }}" class="form">

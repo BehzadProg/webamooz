@@ -1,6 +1,6 @@
-@extends('auth.master')
+@extends('User::Front.master')
 
-@section('title', 'verify-email')
+@section('title', 'تایید ایمیل')
 
 @section('content')
 <form method="POST" action="{{ route('verification.send') }}" class="form">

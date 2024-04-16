@@ -1,4 +1,4 @@
-@extends('auth.master')
+@extends('User::Front.master')
 @section('title', 'صفحه ورود')
 @section('content')
     <form method="POST" action="{{ route('login') }}" class="form">
@@ -24,7 +24,7 @@
             <button class="btn btn--login">ورود</button>
             <label class="ui-checkbox">
                 مرا بخاطر داشته باش
-                <input type="checkbox" checked="checked" name="remember">
+                <input type="checkbox" name="remember">
                 <span class="checkmark"></span>
             </label>
             <div class="recover-password">

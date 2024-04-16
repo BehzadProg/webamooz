@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use Beh7ad\User\Http\Controllers\Auth\PasswordController;
+use Beh7ad\User\Http\Controllers\Auth\NewPasswordController;
+use Beh7ad\User\Http\Controllers\Auth\VerifyEmailController;
+use Beh7ad\User\Http\Controllers\Auth\RegisteredUserController;
+use Beh7ad\User\Http\Controllers\Auth\PasswordResetLinkController;
+use Beh7ad\User\Http\Controllers\Auth\ConfirmablePasswordController;
+use Beh7ad\User\Http\Controllers\Auth\AuthenticatedSessionController;
+use Beh7ad\User\Http\Controllers\Auth\EmailVerificationPromptController;
+use Beh7ad\User\Http\Controllers\Auth\EmailVerificationNotificationController;
 
-Route::middleware('guest')->group(function () {
+
+Route::middleware('guest' , 'web')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
@@ -35,7 +36,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth' , 'web')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 

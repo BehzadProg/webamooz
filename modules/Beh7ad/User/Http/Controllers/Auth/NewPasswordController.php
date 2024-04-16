@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Beh7ad\User\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Rules\ValidPassword;
+use Beh7ad\User\Rules\ValidPassword;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request): View
     {
-        return view('auth.reset-password', ['request' => $request]);
+        return view('User::Front.reset-password', ['request' => $request]);
     }
 
     /**
