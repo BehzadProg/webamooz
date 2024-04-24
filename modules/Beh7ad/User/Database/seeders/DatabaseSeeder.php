@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Beh7ad\User\Database\seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
