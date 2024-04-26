@@ -5,7 +5,7 @@ class VerifyCodeService
 {
     public static function generate()
     {
-        return rand(100000 , 999999);
+        return random_int(100000 , 999999);
     }
 
     public static function store($id , $code)

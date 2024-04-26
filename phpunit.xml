@@ -15,6 +15,10 @@
         <testsuite name="Feature">
             <directory>./modules/Beh7ad/User/Tests/Feature</directory>
         </testsuite>
+
+        <testsuite name="Unit">
+            <directory>./modules/Beh7ad/User/Tests/Unit</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>
