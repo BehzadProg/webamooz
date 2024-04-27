@@ -166,6 +166,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'verify_code' => [
+            'between' => 'کد وارد شده معتبر نمی باشد',
+        ],
     ],
 
     /*
